@@ -7,7 +7,7 @@ class MainController {
     def httpService
     def index() {
 
-        List<Headline> headlines =  httpService.getHeadlinesData()
+        List<Headline> headlines =  httpService.getHeadlines()
         println request.isLoggedIn
 
         log.info("headlines: " + headlines.size())
