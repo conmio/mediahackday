@@ -4,10 +4,10 @@ import com.conmio.mediahackday.headline.Headline
 
 class MainController {
 
-    def httpService
+    def headlineRepository
     def index() {
 
-        List<Headline> headlines =  httpService.getHeadlines()
+        List<Headline> headlines =  headlineRepository.getHeadlines()
         println request.isLoggedIn
 
         log.info("headlines: " + headlines.size())
