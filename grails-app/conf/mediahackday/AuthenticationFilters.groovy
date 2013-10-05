@@ -8,9 +8,12 @@ class AuthenticationFilters {
             before = {
                 if(authenticationService.authenticate(session)){
                     log.info "Logging user on"
+
+                    request.setAttribute("isLoggedIn", true)
                 }else{
                     log.info "User has not logged on... "
                     // Inject Parameters.
+                    request.setAttribute("isLoggedIn", false)
 
                     //redirect(controller:'login')
                 }
@@ -20,10 +23,14 @@ class AuthenticationFilters {
             before = {
                 if(authenticationService.authenticate(session)){
                     log.info "User is already logged on. redirecting"
+
+                    request.setAttribute("isLoggedIn",true)
                     redirect(controller: 'main')
+
                 }else{
                     log.info "Yeah the user has not logged in"
 
+                    request.setAttribute("isLoggedIn", false)
                 }
             }
         }
