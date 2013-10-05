@@ -63,7 +63,7 @@
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" value="notifications">
-                                Enable notifications
+                                Disable notifications
                             </label>
                         </div>
 
@@ -73,6 +73,14 @@
                             <option>Hourly</option>
                             <option>Twice per day</option>
                             <option>Once per day</option>
+                        </select>
+
+                        <label class="notification-interval" for="notification-interval">Specific Time</label>
+                        <select multiple id="notification-interval" class="form-control">
+                            <option>Morning</option>
+                            <option>Afternoon</option>
+                            <option>Evening</option>
+                            <option>Night</option>
                         </select>
 
                         <g:form controller="login" action="signup">
