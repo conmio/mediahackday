@@ -62,9 +62,9 @@ grails.hibernate.cache.queries = false
 
 // AFP4W APIs
 afp4w.api.base.url = "http://www.ipadafp.afp.com/afp-wanifra"
-afp4w.api.IPTC.mapping = [  "Education":    "05000000",
-                            "Health" :      "07000000",
-                            "Sports":       "15000000"
+afp4w.api.IPTC.mapping = [  "eduction":    "05000000",
+                            "health" :      "07000000",
+                            "sports":       "15000000"
 ]
 
 environments {

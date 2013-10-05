@@ -3,15 +3,14 @@ package mediahackday
 import com.conmio.mediahackday.headline.Headline
 
 class MainController {
-    def httpService
+    def channelService
     static defaultAction = "index"
 
 
     def index() {
-        List<Headline> headlines =  httpService.getHeadlinesData()
+        List<Headline> headlines =  channelService.getChannelHeadlines()
         println request.isLoggedIn
 
-        log.info("headlines: " + headlines.size())
         render(view: "/pages/index", model: [headlines: headlines])
     }
 }
