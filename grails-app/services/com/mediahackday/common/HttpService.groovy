@@ -15,19 +15,24 @@ class HttpService {
 
 
     @Cacheable(value="feeds", key="#url")
-    Object request(String url, String type = "post", Map<String, String> params = [:]) {
+    Object request(String url, String type = "post", Map<String, ?> params = [:]) {
         try {
-            def ret = null
+
             log.info "Executing request to $type:$url with Params ${params.dump()}"
             def http = new HTTPBuilder(url)
+
             Method method = type != "post" ? Method.GET : Method.POST
+
+
             if(params.head && params.head instanceof Map){
                 log.info "Adding Head"
                 http.headers = params.head
             }
             return http.request(method, params.contentType ?: ContentType.ANY) { res ->
 
-
+                if(params.query && params.query instanceof Map){
+                    uri.query = params.query
+                }
                 response.success = { resp, data ->
                     log.info "Succesfully requested Data from " + url
                     return data

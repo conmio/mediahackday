@@ -1,5 +1,6 @@
 import com.conmio.mediahackday.article.InMemArticleRepository
-import com.conmio.mediahackday.headline.InMemHeadlineRespository
+import com.mediahackday.article.Afp4WService
+import com.mediahackday.article.Afp4WService
 
 // Place your Spring DSL code here
 beans = {
@@ -12,8 +13,10 @@ beans = {
             bean.autowire = 'byName'
     }
 
-    headlineRepository(InMemHeadlineRespository) {bean ->
+    /*
+    headlineRepository(Afp4WService) {bean ->
             bean.autowire = 'byName'
     }
+    */
 
 }

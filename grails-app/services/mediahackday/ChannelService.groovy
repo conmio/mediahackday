@@ -5,16 +5,17 @@ import com.conmio.mediahackday.headline.Headline
 class ChannelService {
     static transactional = false
 
-    def headlineRepository
+    def afp4WService
 
     List<Headline> getChannelHeadlines() {
 
-        return headlineRepository.getHeadlines()
+        println "Getting Channels"
+        return afp4WService.getArticles()
     }
 
     List<Headline> getChannelHeadlines(String channelID) {
-
-        return headlineRepository.getHeadlines(channelID)
+        println "Getting Channels"
+        return afp4WService.getArticles(channelID)
     }
 
 
