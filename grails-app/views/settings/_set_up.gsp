@@ -15,7 +15,7 @@
                     <a href="#" class="list-group-item">Opt out of push notifications</a>
                 </div>
 
-                <button type="button" class="btn btn-s btn-primary">Postpone set up</button>
+                <button type="button" class="js-button-setup btn btn-s btn-primary">Postpone set up</button>
             </div>
         </div>
     </div>

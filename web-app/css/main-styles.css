@@ -1,0 +1,39 @@
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+#setUpModule {
+    display: none;
+}
+
+#localNewsModule {
+    display: none;
+}
+
+.news-header {
+    text-align: left;
+}
+
+.news-item {
+    text-align: left;
+    font-size: 16px;
+}
+.news-item-thumb {
+    box-sizing: border-box;
+    border-right: 10px solid transparent;
+    float: left;
+}
+.news-item-title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.news-item-summary {
+    font-size: 0.750em;
+}
+
