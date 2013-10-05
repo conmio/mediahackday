@@ -4,6 +4,6 @@ class MainController {
 
     def index() {
 
-    render " This is a page."
+        render view: "/index"
     }
 }
