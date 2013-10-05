@@ -4,9 +4,6 @@ if (typeof jQuery !== 'undefined') {
             $("#loginModule").hide();
             $("#setUpModule").show();
         });
-        $('.js-button-setup').click(function(){
-            $("#setUpModule").hide();
-            $("#localNewsModule").show();
-        });
+
 	})(jQuery);
 }
