@@ -15,10 +15,10 @@ class MainController {
         // List temp = storyfulService.getArticles()
         try {
             if(params.channel_id == null || params?.channel_id == "") {
-                articles = storyfulService.getArticles()
+                articles = afp4WService.getArticles()
             }
             else {
-                articles = storyfulService.getArticles(params.channel_id)
+                articles = afp4WService.getArticles(params.channel_id)
             }
         }
         catch (e) {
