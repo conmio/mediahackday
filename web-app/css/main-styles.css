@@ -18,6 +18,7 @@ body {
 .news-item {
     text-align: left;
     font-size: 16px;
+    clear: both;
 }
 .news-item-thumb {
     box-sizing: border-box;
