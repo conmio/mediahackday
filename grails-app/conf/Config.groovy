@@ -67,6 +67,11 @@ afp4w.api.IPTC.mapping = [  "eduction":    "05000000",
                             "sports":       "15000000"
 ]
 
+
+// Storyful APIs
+storyful.api.base.url = "http://wpe.api.storyful.com/"
+
+
 environments {
     development {
 

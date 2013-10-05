@@ -11,7 +11,7 @@ class MainController {
         List<Headline> headlines = []
 
         try {
-            if(params.channel_id == null && params?.channel_id == "") {
+            if(params.channel_id == null || params?.channel_id == "") {
                 headlines =  channelService.getChannelHeadlines()
             }
             else {
@@ -21,7 +21,6 @@ class MainController {
         catch (e) {
             log.info("Failed to fetch headlines")
         }
-
         // println request.isLoggedIn
 
         // log.info("headlines: " + headlines.size())
