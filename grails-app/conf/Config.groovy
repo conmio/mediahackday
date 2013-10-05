@@ -83,25 +83,63 @@ environments {
     }
 }
 
-// log4j configuration
-log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+def catalinaBase = System.properties.getProperty('catalina.base') ?: '.'
+log4j = {
+    appenders {
+
+        // log for generic application messages
+        rollingFile name: "general",
+                maxBackupIndex: 5,
+                threshold: org.apache.log4j.Level.WARN,
+                layout: pattern(conversionPattern: '%d{ISO8601} %-5p %-30.30c [%t] - %m%n'),
+                file: "${catalinaBase}/logs/general.log"
+
+        // log for api calls
+        rollingFile name: "remote",
+                maxBackupIndex: 5,
+                threshold: org.apache.log4j.Level.INFO,
+                layout: pattern(conversionPattern: '%d{ISO8601}%m%n'),
+                file: "${catalinaBase}/logs/remote.log"
+
+        // log for exceptions
+        rollingFile name: 'stacktrace',
+                maxBackupIndex: 5,
+                layout: pattern(conversionPattern: '%d{ISO8601} %-5p %-30.30c [%t] - %m%n'),
+                file: "${catalinaBase}/logs/stacktrace.log"
+
+        // console logging for development env
+        console name: 'console',
+                layout: pattern(conversionPattern: '%d{ISO8601} %-5p - %m%n'),
+                threshold: org.apache.log4j.Level.DEBUG
+    }
+
+    // logger to console (stdout), but only in development env
+    environments {
+        development {
+            root { debug 'console' }
+        }
+        test {
+        }
+    }
+
+    info general: 'grails.app' // logger for all controllers/services/taglibs/filters
+
+
+    error 'org.codehaus.groovy.grails',
+            'org.springframework',
+            'org.hibernate',
+            'net.sf.ehcache',
+            'org.apache',
+            'org.grails',
+            'grails.util',
+            'grails.plugin',
+            'grails.spring',
+            'grails.app.resourceMappers',
+            'grails.app.taglib.org.grails.plugin',
+            'grails.app.tagLib.org.grails.plugin'
+
+    warn 'org.mortbay.log'
 }
 
 
