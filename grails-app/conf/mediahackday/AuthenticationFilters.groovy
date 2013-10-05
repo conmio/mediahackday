@@ -10,7 +10,9 @@ class AuthenticationFilters {
                     log.info "Logging user on"
                 }else{
                     log.info "User has not logged on... "
-                    redirect(controller:'login')
+                    // Inject Parameters.
+
+                    //redirect(controller:'login')
                 }
             }
         }
