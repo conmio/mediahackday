@@ -12,6 +12,6 @@ class MainController {
         List<Headline> headlines =  httpService.getHeadlinesData()
         // render view: "/index"
         println("headlines: " + headlines.size())
-        render(view: "/index", model: [headlines: headlines])
+        render(view: "/pages/index", model: [headlines: headlines])
     }
 }
