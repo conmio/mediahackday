@@ -1,6 +1,6 @@
 Media Hack Day
-============
+==============
 
-## Conmio Media Hack Day Project at Berlin, October 2013.
+## Conmio at Berlin, October 2013.
 
 
