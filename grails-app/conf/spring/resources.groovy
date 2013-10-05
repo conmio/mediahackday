@@ -1,4 +1,3 @@
-import com.conmio.mediahackday.article.InMemArticleRepository
 import com.mediahackday.article.Afp4WService
 import com.mediahackday.article.Afp4WService
 
@@ -9,7 +8,7 @@ beans = {
         bean.parent = ref("mockupAuthenticationService")
 
     }
-    articleRepository(InMemArticleRepository) {bean ->
+    articleRepository() {bean ->
             bean.autowire = 'byName'
     }
 
