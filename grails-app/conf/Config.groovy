@@ -62,19 +62,23 @@ grails.hibernate.cache.queries = false
 
 // AFP4W APIs
 afp4w.api.base.url = "http://www.ipadafp.afp.com/afp-wanifra"
-afp4w.api.IPTC.mapping = [  "eduction":    "05000000",
-                            "health" :      "07000000",
-                            "sports":       "15000000"
-]
+afp4w.api.IPTC.mapping = [  "eduction": "05000000",
+                            "health" : "07000000",
+                            "sports": "15000000"
+                         ]
 
 
 // Storyful APIs
 storyful.api.base.url = "http://wpe.api.storyful.com/"
+storyful.api.access.token = "d8e893d2958d15c7807b412f72f30ce8"
+storyful.api.channle.url.mapping = [
+                                        "world": "/channels/2/stories",
+                                        "weather": "/channels/16/stories"
+                                    ]
 
 
 environments {
     development {
-
         grails.logging.jul.usebridge = true
     }
     production {

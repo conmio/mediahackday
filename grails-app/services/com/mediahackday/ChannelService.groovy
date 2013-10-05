@@ -1,4 +1,4 @@
-package mediahackday
+package com.mediahackday
 
 import com.conmio.mediahackday.headline.Headline
 
