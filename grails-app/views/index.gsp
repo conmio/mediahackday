@@ -4,6 +4,7 @@
         <meta name="layout" content="main" />
 	</head>
 	<body>
-        <g:render template="/user/login"/>
+        <section id="loginModule"><g:render template="/user/login"/></section>
+        <section id="setUpModule"><g:render template="/settings/set_up"/></section>
 	</body>
 </html>
