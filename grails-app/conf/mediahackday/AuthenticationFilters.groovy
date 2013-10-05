@@ -15,7 +15,7 @@ class AuthenticationFilters {
                     // Inject Parameters.
                     request.setAttribute("isLoggedIn", false)
 
-                    redirect(controller:'login')
+                    //redirect(controller:'login')
                 }
             }
         }
