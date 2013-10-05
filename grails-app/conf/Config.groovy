@@ -71,7 +71,8 @@ afp4w.api.IPTC.mapping = [  "eduction": "05000000",
 // Storyful APIs
 storyful.api.base.url = "http://wpe.api.storyful.com/"
 storyful.api.access.token = "d8e893d2958d15c7807b412f72f30ce8"
-storyful.api.channle.url.mapping = [
+storyful.api.stories.url = "http://wpe.api.storyful.com/stories.json"
+storyful.api.channel.url.mapping = [
                                         "world": "/channels/2/stories",
                                         "weather": "/channels/16/stories"
                                     ]

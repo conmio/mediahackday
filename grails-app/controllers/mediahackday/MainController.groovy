@@ -4,12 +4,15 @@ import com.conmio.mediahackday.headline.Headline
 
 class MainController {
     def channelService
+    def storyfulService
+
     static defaultAction = "index"
 
 
     def index() {
-        List<Headline> headlines = []
+        List<> headlines = []
 
+        List temp = storyfulService.getArticles()
         try {
             if(params.channel_id == null || params?.channel_id == "") {
                 headlines =  channelService.getChannelHeadlines()
