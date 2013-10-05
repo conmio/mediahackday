@@ -12,5 +12,6 @@ class MainController {
         println request.isLoggedIn
 
         render(view: "/pages/index", model: [headlines: headlines])
+
     }
 }
