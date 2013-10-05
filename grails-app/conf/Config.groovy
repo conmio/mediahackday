@@ -60,8 +60,16 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+// AFP4W APIs
+afp4w.api.base.url = "http://www.ipadafp.afp.com/afp-wanifra"
+afp4w.api.IPTC.mapping = [  "Education":    "05000000",
+                            "Health" :      "07000000",
+                            "Sports":       "15000000"
+]
+
 environments {
     development {
+
         grails.logging.jul.usebridge = true
     }
     production {

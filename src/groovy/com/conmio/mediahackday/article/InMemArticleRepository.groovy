@@ -1,0 +1,1 @@
+package com.conmio.mediahackday.articleimport com.conmio.mediahackday.ArticleRepository/** * Created with IntelliJ IDEA. * User: haren * Date: 10/5/13 * Time: 5:23 PM * To change this template use File | Settings | File Templates. */class InMemArticleRepository implements ArticleRepository{    Article getArticle(String articleId) {        return null    }}
