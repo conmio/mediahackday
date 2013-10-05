@@ -10,8 +10,8 @@ class MainController {
     def index() {
 
         List<Headline> headlines =  httpService.getHeadlinesData()
-        // render view: "/index"
-        println("headlines: " + headlines.size())
+        println request.isLoggedIn
+        log.info("headlines: " + headlines.size())
         render(view: "/pages/index", model: [headlines: headlines])
     }
 }
