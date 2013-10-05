@@ -5,10 +5,9 @@ import com.mediahackday.ArticleService
 
 class StoryfulService implements  ArticleService {
     static transactional = false
+
     def grailsApplication
     def httpService
-
-
 
     def getArticles(){
         List<Article> articleList = []
@@ -25,8 +24,8 @@ class StoryfulService implements  ArticleService {
         catch (e) {
             log.error("Could not retrieve Articles, " + e.message)
         }
-        return articleList
 
+        return articleList[0..Math.min(9, articleList.size())]
     }
 
 
@@ -46,6 +45,6 @@ class StoryfulService implements  ArticleService {
             log.error("Could not retrieve Articles, " + e.message)
         }
 
-        return articleList
+        return articleList[0..Math.min(9, articleList.size())]
     }
 }

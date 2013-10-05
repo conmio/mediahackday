@@ -1,33 +1,31 @@
 package mediahackday
 
-import com.conmio.mediahackday.headline.Headline
+import com.conmio.mediahackday.article.Article
 
 class MainController {
-    def channelService
+    def afp4WService
     def storyfulService
 
     static defaultAction = "index"
 
 
     def index() {
-        List<> headlines = []
+        List<Article> articles = []
 
-        List temp = storyfulService.getArticles()
+        // List temp = storyfulService.getArticles()
         try {
             if(params.channel_id == null || params?.channel_id == "") {
-                headlines =  channelService.getChannelHeadlines()
+                articles = storyfulService.getArticles()
             }
             else {
-                headlines =  channelService.getChannelHeadlines(params.channel_id)
+                articles = storyfulService.getArticles(params.channel_id)
             }
         }
         catch (e) {
             log.info("Failed to fetch headlines")
         }
-        // println request.isLoggedIn
-
-        // log.info("headlines: " + headlines.size())
-        render(view: "/pages/index", model: [headlines: headlines])
+        println("!!!!!"+ articles.size())
+        render(view: "/pages/index", model: [articles: articles])
 
     }
 }
