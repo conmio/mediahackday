@@ -26,12 +26,9 @@
         <header>
             <g:render template="/nav/header"/>
         </header>
-        <div class="container">
-            <div class="starter-template">
-                <g:layoutBody />
-            </div>
+        <div class="container starter-template">
+            <g:layoutBody />
         </div>
-
         <r:layoutResources />
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

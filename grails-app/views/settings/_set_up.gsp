@@ -6,9 +6,9 @@
 </div>
 
 <div class="col">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">
-            <h2>Set Up</h2  >
+            <h4>Set Up</h4>
         </div>
 
         <div class="panel-body">
@@ -18,7 +18,7 @@
                         <div class="dropdown">
                             <div class="dropdown-toggle" data-toggle="dropdown">Channles</div>
                             <div class="dropdown-menu">
-                                <div><a href="#">Action</a></div>
+                                <div><a href="#">News Channel</a></div>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="dropdown">
                             <div class="dropdown-toggle" data-toggle="dropdown">Notifications</div>
                             <div class="dropdown-menu">
-                                <div><a href="#">Action</a></div>
+                                <div><a href="#">Turn off</a></div>
                             </div>
                         </div>
                     </div>

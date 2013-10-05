@@ -18,7 +18,7 @@ class LoginController {
 
         session.invalidate()
         log.info "User is Logging Out"
-        render "this is the logout"
+        redirect(action: "login")
 
     }
 
