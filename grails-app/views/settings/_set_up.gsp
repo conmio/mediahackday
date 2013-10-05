@@ -25,24 +25,25 @@
                     <div class="panel-body">
                         <g:form controller="login">
                         </g:form>
-                        <div class="input-group">
-                            <span>Education</span>
-                            <span class="input-box">
-                                <input type="checkbox">
-                            </span>
-                        </div><!-- /input-group -->
-                        <div class="input-group">
-                            <span>Health</span>
-                            <span class="input-box">
-                                <input type="checkbox">
-                            </span>
-                        </div><!-- /input-group -->
-                        <div class="input-group">
-                            <span>Sports</span>
-                            <span class="input-box">
-                                <input type="checkbox">
-                            </span>
-                        </div><!-- /input-group -->
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="education">
+                                Education
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="health">
+                                Health
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="sports">
+                                Sports
+                            </label>
+                        </div>
+                        <!-- /input-group -->
                     </div>
                 </div>
             </div>
@@ -58,26 +59,22 @@
 
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <div class="input-group">
-                            <span>Notifications on/off</span>
-                            <span class="input-box">
-                                <input type="checkbox">
-                            </span>
-                        </div><!-- /input-group -->
-                        <div class="input-group">
-                        <!-- Small button group -->
-                        <div class="btn-group">
-                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                                Interval of notification <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    every hour
 
-                                </li>
-                            </ul>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="notifications">
+                                Enable notifications
+                            </label>
                         </div>
-                        </div><!-- /input-group -->
+
+                        <label class="notification-interval" for="notification-interval">Interval of notification</label>
+                        <select multiple id="notification-interval" class="form-control">
+                            <option>Realtime</option>
+                            <option>Hourly</option>
+                            <option>Twice per day</option>
+                            <option>Once per day</option>
+                        </select>
+
                         <g:form controller="login" action="signup">
                         </g:form>
                 </div>
