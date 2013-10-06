@@ -38,18 +38,16 @@ class MainController {
     def settings() {
         render(view: "/pages/settings")
     }
-
-<<<<<<< HEAD
-    def local() {
-        List<Article> articles = storyfulService.getAllArticles()
-
-        render(view: "/pages/local", model: [articles: articles])
-=======
     def addSub(){
         if(params.channel){
             UserStatusCheckJob.channels.add(params.channel)
         }
         render "Done"
->>>>>>> Updated Jobs etc
     }
+    def local() {
+        List<Article> articles = storyfulService.getAllArticles()
+
+        render(view: "/pages/local", model: [articles: articles])
+    }
+    
 }
