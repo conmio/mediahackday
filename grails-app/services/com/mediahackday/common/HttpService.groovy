@@ -10,28 +10,36 @@ class HttpService {
 
     static transactional = false
 
-    HttpService() {
-    }
-
-
-    @Cacheable(value="feeds", key="#url")
-    Object request(String url, String type = "post", Map<String, ?> params = [:]) {
+    Object nonCachedRequest(String url, String type = "post", Map<String, ?> params = [:]) {
         try {
 
             log.info "Executing request to $type:$url with Params ${params.dump()}"
             def http = new HTTPBuilder(url)
 
-            Method method = type != "post" ? Method.GET : Method.POST
+            Method method = type.toLowerCase() != "post" ? Method.GET : Method.POST
 
 
-            if(params.head && params.head instanceof Map){
-                log.info "Adding Head"
-                http.headers = params.head
+            if (params.header && params.header instanceof Map) {
+
+                http.headers = (Map) params.header
             }
+            if(params.Authorization && params.Authorization instanceof Map){
+                http.auth.basic()
+            }
+
             return http.request(method, params.contentType ?: ContentType.ANY) { res ->
 
-                if(params.query && params.query instanceof Map){
+
+                if (params.query && params.query instanceof Map && method != Method.POST) {
+
                     uri.query = params.query
+
+                } else if (params.query && params.query instanceof Map && method == Method.POST) {
+                    log.info "Body"
+
+                    send URLENC, params.query
+
+
                 }
                 response.success = { resp, data ->
                     log.info "Succesfully requested Data from " + url
@@ -39,15 +47,25 @@ class HttpService {
                 }
 
                 response.failure = { resp ->
-                    log.error("Request to $url was a failure " + resp)
+                    log.error("Request to $url was a failure " + resp.dump())
                     return null
                 }
             }
 
-        } catch (Exception e) {
-            log.error("Could not retrive url. " + e.message);
+        }
+        catch (HttpResponseException ex) {
+            // default failure handler throws an exception:
+            println "Unexpected response error: ${ex.statusCode}"
+        }
+        catch (Exception e) {
+            log.error("Could not retrive url. " + e.dump());
         }
 
+    }
+
+    @Cacheable(value = "feeds", key = "#url")
+    Object request(String url, String type = "post", Map<String, ?> params = [:]) {
+        return nonCachedRequest(url, type, params)
 
     }
 }
