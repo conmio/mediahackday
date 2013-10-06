@@ -53,9 +53,9 @@ class StoryfulService implements  ArticleService {
         log.info "Storyful retrival from" + apiUrl
 
         try {
-            def resp = httpService.request(apiUrl, "POST", ["access_token": grailsApplication.config.storyful.api.access.token, "per_page": "10"])
+            def resp = httpService.request(apiUrl, "POST", ["per_page": "10"])
 
-            articleList = resp.stories.collect{ item -> getArticle(item) }
+            articleList = resp?.stories?.collect{ item -> getArticle(item) }
 
         }
         catch (e) {

@@ -7,7 +7,7 @@ class AuthenticationFilters {
         loginCheck(controller: '*', action: '*', controllerExclude: 'login') {
             before = {
                 if(authenticationService.authenticate(session)){
-                    log.info "Logging user on"
+                    log.info "Logging User on"
 
                     request.setAttribute("isLoggedIn", true)
                 }else{
@@ -28,7 +28,7 @@ class AuthenticationFilters {
                     redirect(controller: 'main')
 
                 }else{
-                    log.info "Yeah the user has not logged in"
+                    log.info "Yeah the User has not logged in"
 
                     request.setAttribute("isLoggedIn", false)
                 }

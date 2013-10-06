@@ -5,6 +5,7 @@ import com.conmio.mediahackday.article.Article
 class MainController {
     def afp4WService
     def storyfulService
+    def grailsApplication
 
     static defaultAction = "index"
 
@@ -15,16 +16,25 @@ class MainController {
         // List temp = storyfulService.getArticles()
         try {
             if(params.channel_id == null || params?.channel_id == "") {
-                articles = afp4WService.getArticles()
+                articles = afp4WService.getArticles() + storyfulService.getArticles()
+                 println("sssss")
             }
             else {
-                articles = afp4WService.getArticles(params.channel_id)
+                if (grailsApplication.config.afp4w.api.IPTC.mapping.keySet().contains(params.channel_id)) {
+                    println(params.channel_id)
+                    articles = afp4WService.getArticles(params.channel_id)
+                }
+                else {
+                    articles = storyfulService.getArticles(params.channel_id)
+                    println(params.channel_id)
+                }
+
             }
         }
         catch (e) {
             log.info("Failed to fetch headlines")
         }
-        println("!!!!!"+ articles.size())
+
         render(view: "/pages/index", model: [articles: articles])
 
     }

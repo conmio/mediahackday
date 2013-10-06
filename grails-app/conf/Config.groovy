@@ -59,7 +59,7 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
-
+                                                                                                        ""
 // AFP4W APIs
 afp4w.api.base.url = "http://www.ipadafp.afp.com/afp-wanifra"
 afp4w.api.IPTC.mapping = [  "eduction": "05000000",
@@ -70,10 +70,9 @@ afp4w.api.IPTC.mapping = [  "eduction": "05000000",
 
 // Storyful APIs
 storyful.api.base.url = "http://wpe.api.storyful.com/"
-storyful.api.access.token = "d8e893d2958d15c7807b412f72f30ce8"
-storyful.api.stories.url = "http://wpe.api.storyful.com/stories.json"
-storyful.api.channel.url.mapping = [ "world": "/channels/2/stories",
-                                     "weather": "/channels/16/stories"
+storyful.api.stories.url = "http://wpe.api.storyful.com/stories.json?access_token=d8e893d2958d15c7807b412f72f30ce8"
+storyful.api.channel.url.mapping = [ "world": "channels/2/stories?access_token=d8e893d2958d15c7807b412f72f30ce8",
+                                     "weather": "channels/16/stories?access_token=d8e893d2958d15c7807b412f72f30ce8"
                                    ]
 
 
