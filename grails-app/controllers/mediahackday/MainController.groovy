@@ -16,10 +16,8 @@ class MainController {
         // List temp = storyfulService.getArticles()
         try {
             if(params.channel_id == null || params?.channel_id == "") {
-                println "test"
                 articles.addAll(storyfulService.getArticles())
                 articles.addAll(afp4WService.getArticles())
-                println articles.size()
             }
             else {
                 if (grailsApplication.config.afp4w.api.IPTC.mapping.keySet().contains(params.channel_id)) {
