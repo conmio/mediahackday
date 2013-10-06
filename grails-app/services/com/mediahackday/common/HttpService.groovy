@@ -23,9 +23,7 @@ class HttpService {
 
                 http.headers = (Map) params.header
             }
-            if(params.Authorization && params.Authorization instanceof Map){
-                http.auth.basic()
-            }
+
 
             return http.request(method, params.contentType ?: ContentType.ANY) { res ->
 
@@ -36,9 +34,12 @@ class HttpService {
 
                 } else if (params.query && params.query instanceof Map && method == Method.POST) {
                     log.info "Body"
+                     if(params.noEncode){
 
-                    send URLENC, params.query
-
+                        body = params.query
+                     }else{
+                        send URLENC, params.query
+                     }
 
                 }
                 response.success = { resp, data ->
@@ -46,8 +47,8 @@ class HttpService {
                     return data
                 }
 
-                response.failure = { resp ->
-                    log.error("Request to $url was a failure " + resp.dump())
+                response.failure = { resp, data ->
+                    log.error("Request to $url was a failure " + data)
                     return null
                 }
             }
