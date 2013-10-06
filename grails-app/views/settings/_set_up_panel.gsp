@@ -18,19 +18,20 @@
                     <div class="panel-body">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="education">
+                                <g:checkBox name="channel" value="education" type="checkbox"/>
                                 Education
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="health">
+
+                                <g:checkBox name="channel" value="health" type="checkbox"/>
                                 Health
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="sports">
+                                <g:checkBox name="channel" value="sports" type="checkbox"/>
                                 Sports
                             </label>
                         </div>
