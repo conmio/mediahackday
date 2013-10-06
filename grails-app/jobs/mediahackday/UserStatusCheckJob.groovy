@@ -11,23 +11,30 @@ class UserStatusCheckJob {
 
     static triggers = {}
 
+    List<String> channels = ["14087124618181189138/eaionflokngfnfajffellemikplifmhh"]
+
+    def addSub(String chan){
+        channels.add(chan)
+    }
     def execute(context) {
 
-        Random rand = new Random()
-        int max = 10
-        def randomIntegerList = []
-        (1..10).each {
-            randomIntegerList << rand.nextInt(max+1)
-        }
         if (context) {
 
-            httpService.nonCachedRequest("https://www.googleapis.com/gcm_for_chrome/v1/messages",
-                    "post", [ 'noEncode' : true,
-                            'header': ['Authorization': context.mergedJobDataMap.feed.token_type + " " + context.mergedJobDataMap.feed.access_token],
-                            'contentType': ContentType.JSON,
-                            'query': ['subchannelId': '0', 'payload': "Hi, there are ${randomIntegerList} new stories for you under ChannelName", 'channelId': '14087124618181189138/eaionflokngfnfajffellemikplifmhh']
+            channels.eachWithIndex { channel, ind ->
+                String message = "Hi, $ind there are X new stories for you under ChannelName"
 
-                    ])
+                log.info "Sending Message $message"
+
+                httpService.nonCachedRequest("https://www.googleapis.com/gcm_for_chrome/v1/messages",
+                        "post", ['noEncode': true,
+                                'header': ['Authorization': context.mergedJobDataMap.feed.token_type + " " + context.mergedJobDataMap.feed.access_token],
+                                'contentType': ContentType.JSON,
+                                'query': ['subchannelId': '0',
+                                        'payload': message,
+                                        'channelId': channel]
+
+                        ])
+            }
         }
     }
 }
