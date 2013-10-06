@@ -5,7 +5,7 @@
 <div class="news-list">
     <g:each var="article" in="${(List<Article>) articles}">
         <g:if test="${article.shortUrl && article.shortUrl != ""}">
-            <a href="${article.shortUrl}"/>
+            <a href="${article.shortUrl}" class="new-link"/>
         </g:if>
         <div class="news-item">
             <div class="news-item-thumb">
