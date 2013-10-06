@@ -8,6 +8,6 @@
 <g:render template="/settings/set_up_panel"/>
 
 <g:form controller="login" action="signup">
-    <g:submitButton name="Submit" type="submit" class="js-button-setup btn btn-s btn-success"/>
+    <g:submitButton name="Save" type="submit" class="js-button-setup btn btn-s btn-success"/>
     <g:submitButton name="Postpone" type="submit" class="js-button-setup btn btn-s btn-primary"/>
 </g:form>
