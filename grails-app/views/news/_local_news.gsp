@@ -12,7 +12,10 @@
                 ${article.headline?.toString()}
             </div>
             <div class="news-item-summary">
-                <p> ${article.summary?.toString()}</p>
+                <p>${article.summary?.toString()}</p>
+            </div>
+            <div class="">
+                <g:formatDate date="${article.pubDate}" format="hh:mm dd-MM-yyyy" />
             </div>
         </div>
     </g:each>
