@@ -30,7 +30,7 @@ class OAuthJob {
         def keys  = httpService.nonCachedRequest("https://accounts.google.com/o/oauth2/token", "post", params)
         if(keys.access_token){
 
-            UserStatusCheckJob.schedule(30000l, 1, [feed:keys, query: params.query]);
+            UserStatusCheckJob.schedule(60000l, 2, [feed:keys, query: params.query]);
 
         }
 
