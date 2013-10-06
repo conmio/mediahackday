@@ -8,6 +8,10 @@
             var latitude  = position.coords.latitude;
             var longitude = position.coords.longitude;
 
+            getLocation(latitude, longitude);
+        }
+
+        function getLocation(latitude, longitude, el) {
             var url = "http://maps.googleapis.com/maps/api/geocode/json" +
                 "?latlng=" + latitude + "," + longitude + "&sensor=false";
 
@@ -16,6 +20,7 @@
 
             var city, country;
 
+            (function(el) {
             $.getJSON(url).done(function(data) {
                 var results = data.results;
                 if (results[1]) {
@@ -34,13 +39,26 @@
                         }
                     }
 
-                    city = city.long_name.toLowerCase();
-                    country = country.long_name.toLowerCase();
-                    
-                    console.log("You're currently in " + city + ', ' + country);
+                    city = city.long_name;
+                    country = country.long_name;
+
+                    if(el) {
+                        el.innerHTML = city + ', ' + country;
+                    }
                 }
             });
-        };
+            })(el);
+
+            $('.js-location-info').each(function() {
+                var el = this;
+
+                var latLng = el.innerHTML;
+
+                latLng = latLng.split(',');
+
+                getLocation(latLng[0], latLng[1], el);
+            });
+        }
 
         function error() {
         };
