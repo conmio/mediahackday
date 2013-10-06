@@ -1,9 +1,21 @@
 if (typeof jQuery !== 'undefined') {
 	(function($) {
+        var username, usernameHolder = $("#userNameHolder");
 		$('.js-button-login').click(function(){
             $("#loginModule").hide();
             $("#setUpModule").show();
+
+            username = $(".js-username-input").val();
+            $('a', usernameHolder).html(username);
+            usernameHolder.show();
+
         });
+
+        if(!usernameHolder.data("loggedin")){
+            usernameHolder.hide();
+        } else {
+            usernameHolder.show();
+        }
 
 
         $("#notificationSW").change(function(){

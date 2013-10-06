@@ -16,8 +16,6 @@
 
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <g:form controller="login">
-                        </g:form>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" value="education">
@@ -76,10 +74,6 @@
                                 <option>Night</option>
                             </select>
                         </section>
-
-
-                        <g:form controller="login" action="signup">
-                        </g:form>
                     </div>
                 </div>
 

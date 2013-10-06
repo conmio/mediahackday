@@ -17,6 +17,9 @@
                     <g:render template="/nav/sign_in_button"/>
                 </li>
             </ul>
+                <p class="navbar-text pull-right" id="userNameHolder"  data-logedin="${request.isLoggedIn}">
+                    Signed in as <a href="#" class="navbar-link"></a>
+                </p>
         </div>
     </div>
 </div>
