@@ -40,6 +40,6 @@ if (typeof jQuery !== 'undefined') {
             notification.show();
         }
     }
-    notificate();
+   // notificate();
     window.notificate = notificate;
 })(jQuery);

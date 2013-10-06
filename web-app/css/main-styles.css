@@ -16,17 +16,12 @@ body {
 }
 
 .news-item-link {
-    text-align: left;
-    font-size: 16px;
-    color:
-    border-bottom: 1px solid gray;
-    overflow: hidden;
-    padding: 10px 0;
+    display: block;
 }
 .news-item {
     text-align: left;
     font-size: 16px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #9d9d9d;
     overflow: hidden;
     padding: 10px 0;
 }
@@ -44,10 +39,12 @@ body {
 .news-item-title {
     font-size: 1em;
     font-weight: bold;
-    margin-bottom: 5px;
+    padding-bottom: 5px;
 }
 .news-item-summary {
     font-size: 0.750em;
+    padding-top: 5px;
+
 }
 
 .menu-title {
@@ -56,4 +53,9 @@ body {
 
 .panel-body {
     text-align: left;
+}
+
+.news-item-timestamp {
+    color: #666666;
+    font-size: 0.750em;
 }
