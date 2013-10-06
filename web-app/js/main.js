@@ -5,5 +5,13 @@ if (typeof jQuery !== 'undefined') {
             $("#setUpModule").show();
         });
 
+
+        $("#notificationSW").change(function(){
+            if(this.checked){
+                $(".notifications-options select").attr("disabled", "disabled");
+            } else {
+                $(".notifications-options select").removeAttr("disabled");
+            }
+        });
 	})(jQuery);
 }

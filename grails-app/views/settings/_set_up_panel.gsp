@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="collapse" href="#collapseOne">
                             Channels
                         </a>
                     </h4>
@@ -44,7 +44,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="collapse" href="#collapseTwo">
                             Notifications
                         </a>
                     </h4>
@@ -55,26 +55,28 @@
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="notifications">
+                                <input type="checkbox" value="notifications" id="notificationSW">
                                 Disable notifications
                             </label>
                         </div>
+                        <section class="notifications-options">
+                            <label class="notification-interval" for="notification-interval">Interval of notification</label>
+                            <select multiple id="notification-interval" class="form-control">
+                                <option>Realtime</option>
+                                <option>Hourly</option>
+                                <option>Twice per day</option>
+                                <option>Once per day</option>
+                            </select>
 
-                        <label class="notification-interval" for="notification-interval">Interval of notification</label>
-                        <select multiple id="notification-interval" class="form-control">
-                            <option>Realtime</option>
-                            <option>Hourly</option>
-                            <option>Twice per day</option>
-                            <option>Once per day</option>
-                        </select>
+                            <label class="notification-time" for="notification-time">Specific Time</label>
+                            <select multiple id="notification-time" class="form-control">
+                                <option>Morning</option>
+                                <option>Afternoon</option>
+                                <option>Evening</option>
+                                <option>Night</option>
+                            </select>
+                        </section>
 
-                        <label class="notification-interval" for="notification-interval">Specific Time</label>
-                        <select multiple id="notification-interval" class="form-control">
-                            <option>Morning</option>
-                            <option>Afternoon</option>
-                            <option>Evening</option>
-                            <option>Night</option>
-                        </select>
 
                         <g:form controller="login" action="signup">
                         </g:form>
