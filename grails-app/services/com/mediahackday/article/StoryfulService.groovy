@@ -46,7 +46,7 @@ class StoryfulService implements  ArticleService {
         log.info "Storyful retrival from" + apiUrl
 
         try {
-            def resp = httpService.request(apiUrl, "POST", ["per_page": "10"])
+            def resp = httpService.request(apiUrl, "get", ["per_page": "10"])
 
             articleList = resp?.stories?.collect{ item -> getArticle(item) }
 
