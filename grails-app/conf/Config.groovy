@@ -1,3 +1,7 @@
+import org.quartz.JobDetail
+import org.quartz.JobDataMap
+import org.quartz.Trigger
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -153,3 +157,4 @@ Client ID:  251806368150-o438edmgkgknp120gmm3bn8kndd6rokm.apps.googleusercontent
 Secret: 4-D92NsLs3KGXLTo112lDJmj
 
  */
+
