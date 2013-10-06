@@ -4,9 +4,12 @@
 </div>
 <div class="news-list">
     <g:each var="article" in="${(List<Article>) articles}">
+        <g:if test="${article.shortUrl && article.shortUrl != ""}">
+            <a href="${article.shortUrl}"/>
+        </g:if>
         <div class="news-item">
             <div class="news-item-thumb">
-                <img src="${article.images?.medium?: 'https://storyful.s3.amazonaws.com/production/stories/40652/index_small.jpg'}" class="img-thumbnail" alt="Article Thumbnail Here">
+                <img src="${article?.profileImageUrl?: 'https://storyful.s3.amazonaws.com/production/stories/40652/index_small.jpg'}" class="img-thumbnail" alt="Article Thumbnail Here">
             </div>
             <div class="news-item-title">
                 ${article.headline?.toString()}
@@ -18,5 +21,10 @@
                 <g:formatDate date="${article.pubDate}" format="hh:mm dd-MM-yyyy" />
             </div>
         </div>
+        <g:if test="${article.shortUrl && article.shortUrl != ""}">
+            </a>
+        </g>
+        </g:if>
+
     </g:each>
 </div>

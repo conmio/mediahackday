@@ -21,15 +21,8 @@ class StoryfulService implements  ArticleService {
         article.location = articleJson?.location
         article.shortUrl = articleJson.get("short_url")
         article.pubDate  = new SimpleDateFormat("yyyy-mm-dd'T'hh:mm:ss'Z'").parse(articleJson?.published_at)
-        /*article.images = [
-                "high" : articleJson?.get("lead_image")?.variants?.large?.toString(),
-                "medium" : articleJson?.get("lead_image")?.variants?.standard?.toString(),
-                "small" : articleJson?.get("lead_image")?.variants?.smallest?.toString()
-        ]*/
-        /*println("here: " + articleJson.lead_image.variants.standard)
-        article.images.high = articleJson?.lead_image?.variants?.large?.toString()
-        article.images.medium = articleJson?.lead_image?.variants?.standard?.toString()
-        article.images.small = articleJson?.lead_image?.variants?.smallest?.toString()*/
+        article.profileImageUrl = articleJson?.lead_image?.variants?.standard?.toString()
+
         return article
     }
 
