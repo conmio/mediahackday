@@ -17,8 +17,8 @@
                     </g:link>
                 </div>
                 <div class="news-item-timestamp">
-                    <span> Time: <g:formatDate date="${article.pubDate}" format="hh:mm dd-MM-yyyy" /></span>
-                    <span> Location: <span class="js-location-info">${article?.location}</span></span>
+                    <span> <g:formatDate date="${article.pubDate}" format="hh:mm dd-MM-yyyy" /></span><br/>
+                    <span> <span class="js-location-info" data-location="${article?.location}"></span></span>
                 </div>
                 <div class="news-item-summary">
                     <span>${article.summary?.toString()}</span>

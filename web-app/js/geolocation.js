@@ -20,7 +20,8 @@
 
             var city, country;
 
-            (function(el) {
+
+            (function(e) {
             $.getJSON(url).done(function(data) {
                 var results = data.results;
                 if (results[1]) {
@@ -41,24 +42,25 @@
 
                     city = city.long_name;
                     country = country.long_name;
-
-                    if(el) {
-                        el.innerHTML = city + ', ' + country;
+                    console.log(e, city, country);
+                    if(e) {
+                        e.html(city + ', ' + country);
                     }
                 }
-            });
+                });
             })(el);
 
-            $('.js-location-info').each(function() {
-                var el = this;
-
-                var latLng = el.innerHTML;
-
-                latLng = latLng.split(',');
-
-                getLocation(latLng[0], latLng[1], el);
-            });
         }
+
+        $('.js-location-info').each(function() {
+            var el = $(this);
+
+            var latLng = el.data('location');
+
+            latLng = latLng.split(',');
+
+            getLocation(latLng[0], latLng[1], el);
+        });
 
         function error() {
         };
