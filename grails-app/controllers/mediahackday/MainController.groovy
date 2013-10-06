@@ -28,4 +28,8 @@ class MainController {
         render(view: "/pages/index", model: [articles: articles])
 
     }
+
+    def settings() {
+        render(view: "/pages/settings")
+    }
 }
