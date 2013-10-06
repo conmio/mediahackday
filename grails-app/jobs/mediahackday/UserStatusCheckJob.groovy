@@ -2,6 +2,7 @@ package mediahackday
 
 import groovyx.net.http.ContentType
 import org.quartz.impl.JobExecutionContextImpl
+import java.util.Random
 
 
 
@@ -24,14 +25,20 @@ Authorization: Bearer 1/fFBGRNJru1FQd44AzqT3Zg
 }
 
                   */
+
+        Random rand = new Random()
+        int max = 10
+        def randomIntegerList = []
+        (1..10).each {
+            randomIntegerList << rand.nextInt(max+1)
+        }
         if (context) {
 
-            log.info "SENDING bullshit"
             httpService.nonCachedRequest("https://www.googleapis.com/gcm_for_chrome/v1/messages",
                     "post", [ 'noEncode' : true,
                             'header': ['Authorization': context.mergedJobDataMap.feed.token_type + " " + context.mergedJobDataMap.feed.access_token],
                             'contentType': ContentType.JSON,
-                            'query': ['subchannelId': '0', 'payload': 'Mikkelin Kikkeli', 'channelId': '14087124618181189138/eaionflokngfnfajffellemikplifmhh']
+                            'query': ['subchannelId': '0', 'payload': "Hi, there are ${randomIntegerList} new stories for you under ChannelName", 'channelId': '14087124618181189138/eaionflokngfnfajffellemikplifmhh']
 
                     ])
         }
