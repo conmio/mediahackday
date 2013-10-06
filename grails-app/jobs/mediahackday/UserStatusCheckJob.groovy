@@ -21,7 +21,7 @@ class UserStatusCheckJob {
         if (context) {
 
             channels.eachWithIndex { channel, ind ->
-                String message = "Hi, $ind there are X new stories for you under ChannelName"
+                String message = "Hi, user number $ind there are a # new stories for you under \n ChannelName. Sent at: " + new Date().toString()
 
                 log.info "Sending Message $message"
 
