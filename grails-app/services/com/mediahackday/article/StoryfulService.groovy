@@ -30,7 +30,6 @@ class StoryfulService implements  ArticleService {
         getArticles("")
     }
 
-
     def getArticles(String channelId) {
         List<Article> articleList = []
         String apiUrl
@@ -57,4 +56,26 @@ class StoryfulService implements  ArticleService {
 
         return articleList[0..Math.min(9, articleList.size())]
     }
+
+
+    def getAllArticles(){
+        List<Article> articleList = []
+        String apiUrl = grailsApplication.config.storyful.api.stories.url
+
+        log.info "Storyful retrival from" + apiUrl
+
+        try {
+            def resp = httpService.request(apiUrl, "get", ["per_page": "200"])
+
+            articleList = resp?.stories?.collect{ item -> getArticle(item) }
+
+        }
+        catch (e) {
+            log.error("Could not retrieve Articles, " + e.message)
+        }
+
+        return articleList
+
+    }
+
 }

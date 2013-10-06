@@ -2,7 +2,6 @@ package com.mediahackday.common
 
 import groovyx.net.http.*
 import static groovyx.net.http.ContentType.*
-import static groovyx.net.http.Method.*
 import grails.plugin.cache.Cacheable
 
 

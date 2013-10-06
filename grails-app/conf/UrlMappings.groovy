@@ -7,6 +7,7 @@ class UrlMappings {
         "/logout"( controller: 'login', action: 'logout')
         "/auth"( controller: 'login', action: 'auth')
         "/signup"(controller: 'login', action: 'signup')
+        "/local"(controller: 'main', action: 'local')
 		"500"(view:'/error')
 	}
 }
